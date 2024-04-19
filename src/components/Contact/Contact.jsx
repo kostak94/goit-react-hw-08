@@ -3,8 +3,8 @@ import { HiUser } from "react-icons/hi";
 import { useDispatch } from "react-redux";
 
 import css from "../PhoneBook.module.css";
-import { formatPhoneNumber } from "../../assets/helpers/formatPhoneNum";
-import { deleteContact } from "../../redux/contactsOps";
+import { formatPhoneNumber } from "../../helpers/formatPhoneNum";
+import { deleteContact } from "../../redux/contacts/operations";
 
 const Contact = ({ item }) => {
   const dispatch = useDispatch();

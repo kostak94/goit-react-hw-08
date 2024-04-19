@@ -1,9 +1,9 @@
 import Contact from "../Contact/Contact";
 import css from "../PhoneBook.module.css";
 import { useSelector } from "react-redux";
-import { selectFilters } from "../../redux/selectors";
-import { selectFilteredContacts } from "../../redux/selectors";
-import { selectIsError, selectIsLoading } from "../../redux/selectors";
+import { selectFilters } from "../../redux/filters/selectors";
+import { selectFilteredContacts } from "../../redux/contacts/slice";
+import { selectIsError, selectIsLoading } from "../../redux/contacts/selectors";
 
 const ContactList = () => {
   const filters = useSelector(selectFilters);
