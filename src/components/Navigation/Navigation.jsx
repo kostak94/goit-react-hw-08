@@ -1,11 +1,13 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { logout } from "../../redux/auth/operations";
 
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const dispatch = useDispatch();
   return (
-    <div>
+    <header>
       <div>
         <Link to="/">Logo</Link>
         <ul>
@@ -28,10 +30,12 @@ const Navigation = () => {
             </li>
           </ul>
         ) : (
-          <button type="button">Logout</button>
+          <button type="button" onClick={() => dispatch(logout())}>
+            Logout
+          </button>
         )}
       </div>
-    </div>
+    </header>
   );
 };
 

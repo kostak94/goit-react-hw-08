@@ -16,7 +16,7 @@ const RegistrationPage = () => {
     email: yup.string().email("Invalid email").required("Email is required"),
     password: yup
       .string()
-      .min(6, "Password must be at least 6 characters")
+      .min(7, "Password must be at least 7 characters")
       .required("Password is required"),
   });
 
@@ -25,6 +25,7 @@ const RegistrationPage = () => {
       .unwrap()
       .then((data) => {
         alert(`Welcome, ${data.user.name}!`);
+        console.log({ data });
         navigate("/");
       })
       .catch(() => alert("Credentials invalid"));
