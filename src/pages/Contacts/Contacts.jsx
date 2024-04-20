@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-import ContactForm from "../ContactForm/ContactForm";
-import ContactList from "../ContactList/ContactList";
-import SearchBox from "../SearchBox/SearchBox";
+import ContactForm from "../../components/ContactForm/ContactForm";
+import ContactList from "../../components/ContactList/ContactList";
+import SearchBox from "../../components/SearchBox/SearchBox";
 import { fetchContacts } from "../../redux/contacts/operations";
 
 const Contacts = () => {
