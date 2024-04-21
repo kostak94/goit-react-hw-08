@@ -29,8 +29,8 @@ export const deleteContact = createAsyncThunk(
   "contacts/deleteContact",
   async (id, thunkAPI) => {
     try {
-      const { data } = await authApi.delete(`contacts/${id}`, id);
-      return data;
+      const { data } = await authApi.delete(`contacts/${id}`,id);
+      return data.id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -39,9 +39,9 @@ export const deleteContact = createAsyncThunk(
 
 export const updateContact = createAsyncThunk(
   "contacts/updateContact",
-  async (id, thunkAPI) => {
+  async ({id, newData}, thunkAPI) => {
     try {
-      const { data } = await authApi.patch(`contacts/${id}`, id);
+      const { data } = await authApi.patch(`contacts/${id}`, newData);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

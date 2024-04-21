@@ -8,9 +8,14 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import css from "../PhoneBook.module.css";
 import { formatPhoneNumber } from "../../helpers/formatPhoneNum";
 import { deleteContact } from "../../redux/contacts/operations";
+import CustomModal from "../CustomModal/CustomModal";
+import { useState } from "react";
 
 const Contact = ({ item }) => {
   const dispatch = useDispatch();
+  const [isOpen, setOpen] = useState(false)
+
+
 
   const handleDelete = () => {
     dispatch(deleteContact(item.id))
@@ -56,7 +61,7 @@ const Contact = ({ item }) => {
       </div>
       <button
         className={css.btn}
-        onClick={() => confirmAlert(options)}
+        onClick={() => setOpen(true)}
         type="button"
       >
         Edit
@@ -68,6 +73,7 @@ const Contact = ({ item }) => {
       >
         Delete
       </button>
+      <CustomModal onClose={()=>setOpen(false)} isOpen={isOpen} contact={item}/>
     </li>
   );
 };

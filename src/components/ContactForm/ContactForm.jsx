@@ -3,14 +3,14 @@ import * as Yup from "yup";
 import toast from "react-hot-toast";
 import css from "../PhoneBook.module.css";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operations";
+import { addContact, updateContact } from "../../redux/contacts/operations";
 
 const initialValues = {
   name: "",
   number: "",
 };
 
-const ContactForm = () => {
+const ContactForm = ({contact}) => {
   const dispatch = useDispatch();
 
   const regex = "^[0-9]*$";
@@ -36,11 +36,20 @@ const ContactForm = () => {
 
     actions.resetForm();
   }
+  function updateSubmit(values, actions) {
+    dispatch(updateContact({ id: contact.id, newData: { name: values.name, number: values.number } }))
+      .unwrap()
+      .then(() => {
+        toast.success("Successfully updated contact!");
+      });
+
+    actions.resetForm();
+  }
 
   return (
     <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
+      initialValues={contact ? {name: contact.name, number: contact.number} : initialValues}
+      onSubmit={contact ? updateSubmit : handleSubmit}
       validationSchema={contactSchema}
     >
       <Form className={css.form}>
@@ -63,7 +72,7 @@ const ContactForm = () => {
           </label>
         </div>
         <button className={css.btn} type="submit">
-          Add contact
+          { contact ? "Update contact" : "Add contact"}
         </button>
       </Form>
     </Formik>
