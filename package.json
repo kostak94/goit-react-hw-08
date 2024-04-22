@@ -10,11 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@fontsource/roboto": "^5.0.12",
-    "@material-ui/core": "^4.12.4",
-    "@mui/material": "^5.15.15",
     "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
@@ -31,10 +26,6 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "yup": "^1.4.0"
-  },
-  "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
