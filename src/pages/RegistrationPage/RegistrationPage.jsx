@@ -1,6 +1,8 @@
 import * as yup from "yup";
 import AuthForm from "../../components/AuthForm/AuthForm";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
+
 import { useNavigate } from "react-router-dom";
 import { register } from "../../redux/auth/operations";
 
@@ -24,11 +26,11 @@ const RegistrationPage = () => {
     dispatch(register(values))
       .unwrap()
       .then((data) => {
-        alert(`Welcome, ${data.user.name}!`);
+        toast.success(`Registration is success ${data.user.name}, welcome!`);
         console.log({ data });
         navigate("/");
       })
-      .catch(() => alert("Credentials invalid"));
+      .catch(() => toast.error("Credentials invalid"));
   };
 
   const initialValues = {

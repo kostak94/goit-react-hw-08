@@ -8,9 +8,9 @@ const SearchBox = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className={css.flexCenter}>
       <label className={css.label}>
-        Find contacts by name
+        Find contacts...
         <input
           className={css.input}
           type="text"

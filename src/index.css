@@ -9,8 +9,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0 auto;
-  padding-top: 50px;
-  padding-left: 100px;
+  /* padding-top: 50px; */
+  /* padding-left: 100px; */
 }
 
 ul {
@@ -26,4 +26,18 @@ h3,
 p {
   margin: 0;
   padding: 0;
+} 
+.formWrapper {
+  /* background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%); */
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  /* align-items: center; */
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
 }

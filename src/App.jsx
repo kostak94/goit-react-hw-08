@@ -7,6 +7,7 @@ import { useEffect, lazy } from "react";
 import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import PrivateRoute from "./routes/PrivateRoute";
+import { Suspense } from "react";
 import PublicRoute from "./routes/PublicRoute";
 import { getToastStyles } from "./helpers/getToastStyles";
 
@@ -27,7 +28,7 @@ function App() {
   return isRefresh ? (
     "Loading..."
   ) : (
-    <div>
+    <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -59,7 +60,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster {...getToastStyles()} />
-    </div>
+    </Suspense>
   );
 }
 

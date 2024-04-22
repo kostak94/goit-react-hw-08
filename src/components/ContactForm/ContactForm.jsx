@@ -47,7 +47,8 @@ const ContactForm = ({contact}) => {
   }
 
   return (
-    <Formik
+    <div className={css.addForm}>
+      <Formik
       initialValues={contact ? {name: contact.name, number: contact.number} : initialValues}
       onSubmit={contact ? updateSubmit : handleSubmit}
       validationSchema={contactSchema}
@@ -76,6 +77,7 @@ const ContactForm = ({contact}) => {
         </button>
       </Form>
     </Formik>
+    </div>
   );
 };
 

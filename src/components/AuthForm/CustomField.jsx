@@ -1,25 +1,28 @@
 import { ErrorMessage, Field } from "formik";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import css from "../PhoneBook.module.css";
+
 
 const CustomField = ({ type, name, placeholder }) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <label>
+    <label className={css.labelLog}>
       {name}
-      <div>
+      <div className={css.inputWrapper}>
         <Field
+          className={css.inputLog}
           type={showPassword ? "text" : type}
           name={name}
           placeholder={placeholder}
         />
         {type === "password" && (
-          <button type="button" onClick={() => setShowPassword(!showPassword)}>
+          <button className={css.iconBtn} type="button" onClick={() => setShowPassword(!showPassword)}>
             {!showPassword ? <FaEyeSlash size={24} /> : <FaEye size={24} />}
           </button>
         )}
       </div>
-      <ErrorMessage name={name} component={"p"} />
+      <ErrorMessage className={css.red} name={name} component={"p"} />
     </label>
   );
 };

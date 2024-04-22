@@ -25,9 +25,21 @@
   justify-content: start;
   gap: 10px;
 }
+.flexCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexCenter2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .list {
   margin-top: 70px;
   display: flex;
+  padding: 0 150px;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -81,4 +93,96 @@
 }
 .btn:hover {
   background-color: rgb(54, 154, 155);
+}
+
+
+.formLog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  box-shadow: 0 0 9px 5px black;
+  background-color: white;
+  max-width: 350px;
+}
+.labelLog {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: bold;
+}
+.inputLog {
+  padding: 5px 15px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px 1px gray;
+  font-size: 1.5rem;
+  /* width: 100%; */
+}
+
+.inputWrapper {
+  position: relative;
+
+}
+.addForm{
+  display: flex;
+  justify-content: center;
+}
+
+.iconBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.logo{
+  color: white;
+  text-decoration: none;
+}
+.logo:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(155, 152, 152);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+  background-color: rgb(146, 76, 86);
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: white;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+         a:hover {
+           color: rgb(158, 156, 156);
+           text-decoration: underline;
+         }
+      
+  }
+  
+}
+
+.active {
+  color: black !important;
+}
+
+.red {
+  color: red;
+  font-size: 1rem;
 }

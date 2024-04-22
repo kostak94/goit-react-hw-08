@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import AuthForm from "../../components/AuthForm/AuthForm";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../redux/auth/operations";
+import toast from "react-hot-toast";
+
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -20,10 +22,10 @@ const LoginPage = () => {
     dispatch(login(values))
       .unwrap()
       .then((data) => {
-        console.log(`Welcome, ${data.user.name}!`);
+        toast.success(`Welcome ${data.user.name}`)
         navigate("/");
       })
-      .catch(() => alert("Credentials invalid"));
+      .catch(() => toast.error("Credentials invalid"));
   };
 
   const initialValues = {

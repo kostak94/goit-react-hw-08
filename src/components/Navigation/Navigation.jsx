@@ -1,41 +1,39 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
 import { logout } from "../../redux/auth/operations";
+import css from "../PhoneBook.module.css";
+
 
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const user = useSelector(selectUser)
   const dispatch = useDispatch();
   return (
-    <header>
-      <div>
-        <Link to="/">Logo</Link>
+    <div className={css.navbar}>
+      <Link className={css.logo} to="/">Phonebook</Link>
+      <p>{ user.name}</p>
         <ul>
-          <li>
             <NavLink to="/">Home</NavLink>
-          </li>
           <li>
             <NavLink to="contacts">Contacts</NavLink>
           </li>
-        </ul>
-      </div>
-      <div>
-        {!isLoggedIn ? (
-          <ul>
+        {!isLoggedIn && (
+          <>
             <li>
               <NavLink to="login">Login</NavLink>
             </li>
             <li>
               <NavLink to="register">Registration</NavLink>
             </li>
-          </ul>
-        ) : (
-          <button type="button" onClick={() => dispatch(logout())}>
+          </>
+        )} { isLoggedIn && (
+          <button className={css.btn} type="button" onClick={() => dispatch(logout())}>
             Logout
           </button>
         )}
-      </div>
-    </header>
+        </ul>
+    </div>
   );
 };
 

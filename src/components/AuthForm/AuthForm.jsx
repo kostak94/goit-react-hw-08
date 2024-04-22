@@ -1,6 +1,8 @@
 import { Formik, Form } from "formik";
 import CustomField from "./CustomField";
 import { Link } from "react-router-dom";
+import css from "../PhoneBook.module.css";
+
 
 const AuthForm = ({
   title,
@@ -10,13 +12,14 @@ const AuthForm = ({
   onSubmit,
 }) => {
   return (
-    <Formik
-      validationSchema={validationSchema}
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-    >
-      <Form>
-        {type == "register" && (
+    <div className='formWrapper flexCenter'>
+       <Formik
+        validationSchema={validationSchema}
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        >
+        <Form className={css.formLog}>
+         {type == "register" && (
           <CustomField type="text" name="name" placeholder="Enter your name" />
         )}
         <CustomField type="text" name="email" placeholder="Enter your email" />
@@ -25,7 +28,7 @@ const AuthForm = ({
           name="password"
           placeholder="Enter your password"
         />
-        <button type="submit">{title}</button>
+        <button className={css.btn} type="submit">{title}</button>
         <p>
           You{" "}
           {type === "register"
@@ -38,6 +41,7 @@ const AuthForm = ({
         </p>
       </Form>
     </Formik>
+   </div>
   );
 };
 
